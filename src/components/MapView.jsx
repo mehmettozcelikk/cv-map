@@ -9,17 +9,6 @@ import PlacePopup from './PlacePopup';
 import RoutingMachine from './RoutingMachine';
 import ActionsMenu from './ActionsMenu'; // ← SAĞ ÜST MENÜ
 
-
-import linkedinIcon from 'src/assets/logos/linkedin.png';
-import githubIcon from 'src/assets/logos/git.png';
-import btkIcon from 'src/assets/logos/btk.png';
-import gaziIcon from 'src/assets/logos/gazi.png';
-import issdIcon from 'src/assets/logos/issd.png';
-import isTechSoftIcon from 'src/assets/logos/istechsoft.png';
-import yetgenIcon from 'src/assets/logos/yetgen.png';
-
-const iconImg = (src, alt) => <img src={src} alt={alt} style={{ width: 16, height: 16 }} />;
-
 const BASE = import.meta.env.BASE_URL; 
 
 /* --- SVG tabanlı marker ikonları --- */
@@ -197,7 +186,7 @@ export default function MapView() {
       icon: iconImg(linkedinIcon, 'LinkedIn') },
     { label: 'Medium',   href: 'https://medium.com/@mehmetozcelikk', 
       icon: '✍️' },
-    { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf', 
+    { label: 'Özgeçmiş (PDF)', href: BASE + 'CV.pdf', 
       icon: '🫆' },
   ];
 
