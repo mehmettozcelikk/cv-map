@@ -7,11 +7,21 @@ import L from 'leaflet';
 import { places } from '../data/places';
 import PlacePopup from './PlacePopup';
 import RoutingMachine from './RoutingMachine';
-import ActionsMenu from './ActionsMenu'; // ← SAĞ ÜST MENÜ
+import ActionsMenu from './ActionsMenu'; // sağ üst menü
 
-const BASE = import.meta.env.BASE_URL; 
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
-/* --- SVG tabanlı marker ikonları --- */
+import linkedinLogo from '../assets/logos/linkedin.png';
+import githubLogo from '../assets/logos/git.png';
+
+
 function makeSvgIcon(hexColor = '#2563EB') {
   const svg = encodeURIComponent(`
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48">
@@ -34,7 +44,6 @@ const icons = {
   government: makeSvgIcon('#3d0041ff'),
   company:    makeSvgIcon('#943e00ff'),
   company1:   makeSvgIcon('#005f73ff'),
-  company2:   makeSvgIcon('#00732eff'),
   default:    makeSvgIcon('#1900ffff'),
 };
 
@@ -96,7 +105,6 @@ export default function MapView() {
   const ATTRIB = '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>';
 
   const placePositions = places.map(p => [p.lat, p.lng]);
-
   const mapRef = useRef(null);
   const userMarkerRef = useRef(null);
 
@@ -104,6 +112,9 @@ export default function MapView() {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [routeRequestedPlace, setRouteRequestedPlace] = useState(null);
   const [locating, setLocating] = useState(false);
+
+  // GitHub Pages subpath için BASE
+  const BASE = import.meta.env.BASE_URL; // /cv-map/  
 
   const handleCreated = useCallback((map) => {
     mapRef.current = map;
@@ -178,16 +189,14 @@ export default function MapView() {
     map.fitBounds(L.latLngBounds(all), { padding: [50, 70] });
   }, [placePositions, userPos]);
 
-  // Menü öğeleri (sağ üst)
+  // Menü öğeleri (sağ üst) — ikonlar asset’ten, CV linki BASE ile
+  const iconImg = (src, alt) => <img src={src} alt={alt} style={{ width: 16, height: 16 }} />;
   const actionItems = [
-    { label: 'GitHub',   href: 'https://github.com/mehmettozcelikk', 
-      icon: iconImg(githubIcon, 'GitHub') },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mehmettozcelikk/', 
-      icon: iconImg(linkedinIcon, 'LinkedIn') },
-    { label: 'Medium',   href: 'https://medium.com/@mehmetozcelikk', 
-      icon: '✍️' },
-    { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf', 
-      icon: '🫆' },
+    { label: 'GitHub',   href: 'https://github.com/mehmettozcelikk',                icon: iconImg(githubLogo, 'GitHub') },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/mehmettozcelikk',           icon: iconImg(linkedinLogo, 'LinkedIn') },
+    { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf',                                icon: '📄' },
+    { label: 'Tüm Noktalar', onClick: handleFitAll,                                  icon: '🗺️' },
+    { label: 'Konumum', onClick: () => requestLocate(),                              icon: '📍' },
   ];
 
   const allPositionsProvider = useCallback(() => {
@@ -254,7 +263,7 @@ export default function MapView() {
           );
         })}
 
-        {/* Gerçek yol rotası */}
+        {/* Gerçek yol rotası (OSRM) */}
         {userPos && selectedPlace && (
           <RoutingMachine
             from={userPos}
