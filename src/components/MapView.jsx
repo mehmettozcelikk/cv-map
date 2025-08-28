@@ -18,8 +18,8 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-import linkedinLogo from '../assets/logos/linkedin.png';
-import githubLogo from '../assets/logos/git.png';
+import linkedinLogo from '../public/logos/linkedin.png';
+import githubLogo from '../public/logos/linkedin.png';
 
 
 function makeSvgIcon(hexColor = '#2563EB') {
