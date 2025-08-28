@@ -194,7 +194,7 @@ export default function MapView() {
   const actionItems = [
     { label: 'GitHub',   href: 'https://github.com/mehmettozcelikk',                 icon: iconImg(githubLogo, 'GitHub') },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/mehmettozcelikk',            icon: iconImg(linkedinLogo, 'LinkedIn') },
-    { label: 'LinkedIn', href: 'https://medium.com/@mehmetozcelikk',                 icon: '✍️'},
+    { label: 'Medium', href: 'https://medium.com/@mehmetozcelikk',                 icon: '✍️'},
     { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf',                                icon: '📄' },
   ];
 
