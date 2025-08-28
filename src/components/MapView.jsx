@@ -18,7 +18,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-import linkedinLogo from '../public/logos/linkedin.png';
+import linkedinLogo from '../logos/linkedin.png';
 import githubLogo from '../public/logos/linkedin.png';
 
 
