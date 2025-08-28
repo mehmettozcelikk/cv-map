@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL; 
+
 export const places = [
   {
     id: 'gazi-muh-maltepe',
@@ -13,7 +15,7 @@ export const places = [
     skills: ['OOP-Java', 'C', 'Yazılım Geliştirme', 'Lineer Cebir', "Ayrık Matematik" ,"...."],
     address: 'Bahçelievler Mh., Maltepe/Çankaya',
     links: { website: "https://mf-bm.gazi.edu.tr/"},
-    logo: "src/assets/logos/gazi.png" 
+    logo: BASE + 'logos/gazi.png'
   },
   {
     id: 'btk',
@@ -31,7 +33,7 @@ export const places = [
     skills: ['Java', 'Takım Çalışması', 'PostgreSQL', 'Spring Framework', 'Git'],
     address: 'Dumlupınar Blv. 10.Km No: 276, 06530 Çankaya/Ankara',
     links: { website: 'https://www.btk.gov.tr'},
-    logo: "src/assets/logos/btk.png"
+    logo: BASE + 'logos/btk.png'
   },
   {
     id: 'odtu-teknokent-issd',
@@ -49,7 +51,7 @@ export const places = [
     skills: ['Computer Vision', 'Python', 'OCR (PaddleOCR)', "Algoritma Geliştirme", "OpenCV","Git"],
     address: 'ODTÜ Teknokent, 06531 Çankaya',
     links: { website: 'https://www.issd.com.tr' },
-    logo: "src/assets/logos/issd.png"
+    logo: BASE + 'logos/issd.png'
   },
   {
     id: 'isTechSoft',
@@ -68,7 +70,7 @@ export const places = [
     skills: ['C#', 'Unity', 'OOP', "Yazılım Geliştirme", "Git", "Takım Çalışması"],
     address: 'OMÜ Teknopark, 55200 Atakum/Samsun',
     links: { website: 'https://www.istechsoft.com/' },
-    logo: "src/assets/logos/istechsoft.png"
+    logo: BASE + 'logos/istechsoft.png'
   },
   {
     id: 'yetgen',
@@ -84,6 +86,6 @@ export const places = [
     skills: ['Etkili Sunum Teknikleri', 'Takım Çalışması', 'Excel ile Modelleme', "Finans/Bilgi/Sağlık/Medya Okuryazarlığı", "Proje Yönetimi", "Sosyal İnovasyon"],
     address: 'İstanbul',
     links: { website: 'https://yetkingencler.com/' },
-    logo: "src/assets/logos/yetgen.png"
+    logo: BASE + 'logos/yetgen.png'
   }
 ];
