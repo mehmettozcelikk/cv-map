@@ -186,7 +186,7 @@ export default function MapView() {
       icon: iconImg(linkedinIcon, 'LinkedIn') },
     { label: 'Medium',   href: 'https://medium.com/@mehmetozcelikk', 
       icon: '✍️' },
-    { label: 'Özgeçmiş (PDF)', href: BASE + 'CV.pdf', 
+    { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf', 
       icon: '🫆' },
   ];
 
