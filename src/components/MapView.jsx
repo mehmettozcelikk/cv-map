@@ -195,8 +195,6 @@ export default function MapView() {
     { label: 'GitHub',   href: 'https://github.com/mehmettozcelikk',                icon: iconImg(githubLogo, 'GitHub') },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/mehmettozcelikk',           icon: iconImg(linkedinLogo, 'LinkedIn') },
     { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf',                                icon: '📄' },
-    { label: 'Tüm Noktalar', onClick: handleFitAll,                                  icon: '🗺️' },
-    { label: 'Konumum', onClick: () => requestLocate(),                              icon: '📍' },
   ];
 
   const allPositionsProvider = useCallback(() => {
