@@ -192,8 +192,9 @@ export default function MapView() {
   // Menü öğeleri (sağ üst) — ikonlar asset’ten, CV linki BASE ile
   const iconImg = (src, alt) => <img src={src} alt={alt} style={{ width: 16, height: 16 }} />;
   const actionItems = [
-    { label: 'GitHub',   href: 'https://github.com/mehmettozcelikk',                icon: iconImg(githubLogo, 'GitHub') },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/mehmettozcelikk',           icon: iconImg(linkedinLogo, 'LinkedIn') },
+    { label: 'GitHub',   href: 'https://github.com/mehmettozcelikk',                 icon: iconImg(githubLogo, 'GitHub') },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/mehmettozcelikk',            icon: iconImg(linkedinLogo, 'LinkedIn') },
+    { label: 'LinkedIn', href: 'https://medium.com/@mehmetozcelikk',                 icon: '✍️'},
     { label: 'Özgeçmiş (PDF)', href: BASE + 'cv.pdf',                                icon: '📄' },
   ];
 
